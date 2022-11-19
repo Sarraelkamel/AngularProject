@@ -1,0 +1,25 @@
+<h1>{{titres}}</h1>
+
+<div class="Container">
+    <div class="row">
+      
+        <div class="col-md-4 col-sm-6 col-xs-12" *ngFor="let a of listeArticles">
+            <div *ngIf="a.categorie!='Travail'">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">{{a.titre}}</h5>
+                  <p class="card-text" [ngStyle]="{color: a.categorie=== 'Education' ? 'blue' : 'black'}" >Contenu : {{a.contenu}}</p>
+                  <p class="card-text" [ngStyle]="{color: a.categorie=== 'Education' ? 'blue' : 'black'}">Auteur : {{a.auteur}}</p>
+                  <p class="card-text" [ngStyle]="{color: a.categorie=== 'Education' ? 'blue' : 'black'}">Auteur : {{a.date}}</p>
+                  <p class="card-text" [ngStyle]="{color: a.categorie=== 'Education' ? 'blue' : 'black'}" >Categorie : {{a.categorie}}</p>
+ 
+                </div>
+              </div>
+            </div>
+        </div>
+        <input name="nbAritcles" [(ngModel)] = "nbr ">
+      <button (click)="nbArticles()">nbarticle</button>
+        
+        </div>
+    </div>
+
