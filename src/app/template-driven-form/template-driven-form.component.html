@@ -1,0 +1,89 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/products">Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/offre-emploi">Emplois</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/articles">Articles</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/AddProduct">Add</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/form">Driven</a>
+              </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+
+
+
+<form #form="ngForm" (ngSubmit)="ajouter()">
+    <div>
+        <h3>Informations générales</h3>
+       Nom : <input class="form-control" type="text" name="Nom" [(ngModel)] = "dri.nom " required #nom="ngModel">
+       <div class="alert alert-danger" *ngIf="nom.touched && nom.invalid">
+       <div *ngIf="nom.errors?.['required']">Nom is required</div>
+       </div>
+        <div>
+            <h3>Informations de payement</h3>
+          Email :  <input class="form-control" type="text" name="email"  [(ngModel)] = "dri.email" required #em="ngModel" pattern="[a-zA-Z0-9]+.[a-zA-Z0-9]+@[a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9]">
+          <div class="alert alert-danger" *ngIf="em.touched && em.invalid">
+            <div *ngIf="em.errors?.['required']">Email is required</div>
+            <div *ngIf="em.errors?.['pattern']">Email invalid</div>
+            </div></div>
+             <div>
+          Numéro carte :  <input class="form-control" type="number" name="num_carte" [(ngModel)]= "dri. numero_carte " required #num="ngModel"  pattern="[0-9]{16}">
+          <div class="alert alert-danger" *ngIf="num.touched && num.invalid">
+            <div *ngIf="num.errors?.['required']">Numero carte required</div>
+            <div *ngIf="num.errors?.['pattern']">numero carte doit contenir 16 chiffre</div>
+          </div>
+          type carte :  <input class="form-control" type="text" name="type_carte" [(ngModel)]= "dri. type_carte " required #type="ngModel">
+          <div class="alert alert-danger" *ngIf="type.touched && type.invalid">
+            <div *ngIf="type.errors?.['required']">type carte required</div>
+          </div>
+          Date expiration <input class="form-control" type="date" name="date" [(ngModel)]= "dri.date " required #date="ngModel" >
+          <div class="alert alert-danger" *ngIf="date.touched && date.invalid">
+            <div *ngIf="date.errors?.['required']">date required</div>
+          </div>
+          <div>
+            <label *ngIf="em.valid && num.valid && date.valid && type.valid">Code :</label>
+            <input class="form-control" type="password" name="code" [(ngModel)]="dri.code" #code ="ngModel" *ngIf="em.valid && num.valid && date.valid && type.valid">
+        </div>
+    </div>
+        <input  class="btn btn-primary" type="submit" value="Ajouter" [disabled]="form.invalid">
+
+    </div>
+</form>

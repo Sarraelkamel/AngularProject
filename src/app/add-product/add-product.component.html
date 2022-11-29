@@ -45,25 +45,38 @@
   </nav>
 
 
-<div class="Container">
-    <div class="row">
-        <input name="Search" [(ngModel)] = "searchText ">
-      <button (click)="Search()">Search</button>
-        <div class="col-md-4 col-sm-6 col-xs-12" *ngFor="let p of listeEmploi">
-            <div class="card" style="width: 18rem;">
-                
-                <div class="card-body">
-                  <h5 class="card-title">{{p.titre}}</h5>
-                  <p class="card-text">Reference : {{p.reference}}</p>
-                  <p class="card-text">Entreprise : {{p.entreprise}}</p>
-                  <p class="card-text">Etat : {{p.etat}}</p>
-                  <button class="btn btn-primary" [disabled] = "p.etat == false">Postuler</button>
-                </div>
-              </div>
-        </div>
-        <button class="btn btn-primary" (click)="Bilan()">Bilan</button>
-        <p>{{nbr}}</p>
 
-        </div>
-    </div>
 
+
+<form (ngSubmit)="ajouter()" #form="ngForm" >
+    Title : <input class="form-control" type="text" name="title" [(ngModel)] = "product.title " required minlength="3" #title="ngModel"><br><br>
+    <div class="alert alert-danger" *ngIf="title.touched && title.invalid">
+    <div *ngIf="title.errors?.['required']">Title is required</div>
+    <div *ngIf="title.errors?.['minlength']">Title must have at least 3 charachters</div>
+</div>
+    Price : <input class="form-control"  type="number" name="price" [(ngModel)] = "product.price " required min="1" #price="ngModel"><br><br>
+    <div class="alert alert-danger" *ngIf="price.touched && price.invalid">
+    <div *ngIf="price.errors?.['required']">Price is required</div>
+    <div *ngIf="price.errors?.['min']">Price must be a positive number</div>
+</div>
+    Quantity : <input class="form-control" type="number" name="quantity" [(ngModel)] = "product.quantity " required min="1" #quantity="ngModel"><br><br>
+    <div class="alert alert-danger" *ngIf="quantity.touched && quantity.invalid">
+    <div *ngIf="quantity.errors?.['required']">Quantity is required</div>
+    <div *ngIf="quantity.errors?.['min']">Quantity must be a positive number</div>
+</div>
+    Picture : <input class="form-control"  type="text" name="picture" [(ngModel)] = "product.picture " required="" #picture="ngModel"><br><br>
+    <div class="alert alert-danger" *ngIf="picture.touched && picture.invalid">
+    <div *ngIf="picture.errors?.['required']">Picture is required</div>
+</div>
+
+Email : <input class="form-control" type="text" name="email" [(ngModel)] = "email " required minlength="3" #em="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+<div class="alert alert-danger" *ngIf="em.touched && em.invalid">
+    <div *ngIf="em.errors?.['required']">Email is required</div>
+</div> 
+<input  class="btn btn-primary" type="submit" value="Save" [disabled]="form.invalid">
+</form>
+
+{{product.title}}
+{{product.price}}
+{{product.quantity}}    
+{{product.picture}}
