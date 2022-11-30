@@ -21,6 +21,9 @@
             <li class="nav-item">
               <a class="nav-link" routerLink="/form">Driven</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/todo">todo</a>
+            </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown
@@ -60,10 +63,13 @@
                   <button class="btn btn-primary" (click)="Buy(p.id)" [disabled] = "p.quantity == 0">Buy</button>&nbsp;&nbsp;&nbsp;
                   <button type="button" class="btn btn-warning" (click)="Like(p.id)">Like</button>
 
+
                 </div>
               </div>
+
         </div>
-        
+        <button class="btn btn-primary" (click)="Calculer()" >Verifier : {{nbp}}</button>&nbsp;&nbsp;&nbsp;
+
         </div>
     </div>
 

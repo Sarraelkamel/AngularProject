@@ -7,6 +7,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { OffresEmploiComponent } from './offres-emploi/offres-emploi.component';
 import { ProductsComponent } from './products/products.component';
 import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
+import { TodoListComponent } from './todo-list/todo-list.component';
 
 const routes: Routes = [
   {path : 'products', component : ProductsComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path : 'articles', component : ArticlesComponent},
   {path : 'AddProduct', component : AddProductComponent},
   {path : 'form', component : TemplateDrivenFormComponent},
+  {path : 'todo', component : TodoListComponent},
   {path:'', redirectTo:'products', pathMatch : 'full'},
   {path: '**', component : NotFoundComponent }
 ];
