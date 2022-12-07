@@ -8,6 +8,7 @@ import { OffresEmploiComponent } from './offres-emploi/offres-emploi.component';
 import { ProductsComponent } from './products/products.component';
 import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
+import { UpdateProductComponent } from './update-product/update-product.component';
 
 const routes: Routes = [
   {path : 'products', component : ProductsComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path : 'AddProduct', component : AddProductComponent},
   {path : 'form', component : TemplateDrivenFormComponent},
   {path : 'todo', component : TodoListComponent},
+  {path : 'update/:product', component : UpdateProductComponent},
   {path:'', redirectTo:'products', pathMatch : 'full'},
   {path: '**', component : NotFoundComponent }
 ];

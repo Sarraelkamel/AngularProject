@@ -19,7 +19,10 @@
               <a class="nav-link" routerLink="/AddProduct">Add</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" routerLink="/form">Driven</a>
+              <a class="nav-link" routerLink="/from">Driven</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/update">Update</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" routerLink="/todo">todo</a>
@@ -60,8 +63,14 @@
                   <p class="card-text">Price : {{p.price}}</p>
                   <p class="card-text">Quantity : {{p.quantity}}</p>
                   <p class="card-text" >Like : {{p.like}}</p>
+                  
                   <button class="btn btn-primary" (click)="Buy(p.id)" [disabled] = "p.quantity == 0">Buy</button>&nbsp;&nbsp;&nbsp;
                   <button type="button" class="btn btn-warning" (click)="Like(p.id)">Like</button>
+                  <button type="button" class="btn btn-warning" (click)="Delete(p.id) ">Delete</button>
+                  <a routerLink = "/update/{{p}}"><button type="button" class="btn btn-warning">Update</button></a>
+                 
+                  
+
 
 
                 </div>

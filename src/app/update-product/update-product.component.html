@@ -53,8 +53,7 @@
 
 
 
-
-<form (ngSubmit)="ajouter()" #form="ngForm" >
+  <form (ngSubmit)="Update(product)" #form="ngForm" >
     Title : <input class="form-control" type="text" name="title" [(ngModel)] = "product.title " required minlength="3" #title="ngModel" ><br><br>
     <div class="alert alert-danger" *ngIf="title.touched && title.invalid">
     <div *ngIf="title.errors?.['required']">Title is required</div>
@@ -79,7 +78,7 @@ Email : <input class="form-control" type="text" name="email" [(ngModel)] = "emai
 <div class="alert alert-danger" *ngIf="em.touched && em.invalid">
     <div *ngIf="em.errors?.['required']">Email is required</div>
 </div> 
-<input  class="btn btn-primary" type="submit" value="Save" [disabled]="form.invalid">
+<input  class="btn btn-primary" type="submit" value="Update" [disabled]="form.invalid">
 </form>
 
 {{product.title}}

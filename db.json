@@ -1,0 +1,11 @@
+{
+  "products": [
+    {
+      "title": "fvdcds",
+      "price": 6,
+      "quantity": 6,
+      "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqk1Azt9l0rFxqTIKsI5J0D2C28YXC0gG0mpPKTy4&s",
+      "id": 1
+    }
+  ]
+}

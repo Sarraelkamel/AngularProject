@@ -12,6 +12,8 @@ import { ArticlesComponent } from './articles/articles.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
+import {HttpClientModule} from '@angular/common/http';
+import { UpdateProductComponent } from './update-product/update-product.component';
 
 @NgModule({
   declarations: [
@@ -24,12 +26,14 @@ import { TodoListComponent } from './todo-list/todo-list.component';
     ArticlesComponent,
     AddProductComponent,
     TemplateDrivenFormComponent,
-    TodoListComponent
+    TodoListComponent,
+    UpdateProductComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
